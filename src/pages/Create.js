@@ -1,10 +1,11 @@
 import React ,{ useState } from 'react'
 
-import { Typography,Button,Container} from '@material-ui/core';
+import { Typography,Button,Container, RadioGroup, FormControlLabel, Radio, FormLabel, FormControl} from '@material-ui/core';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import { makeStyles } from "@material-ui/core"
 import {createMuiTheme,ThemeProvider} from '@material-ui/core'
 import { TextField } from '@material-ui/core';
+import {useHistory } from 'react-router-dom'
 
 const useStyles = makeStyles({
   btn:{
@@ -17,6 +18,7 @@ const useStyles = makeStyles({
   },
   myTextField:{
     paddingBottom:16,
+    display:"block"
     
     
   }
@@ -34,11 +36,13 @@ const theme = createMuiTheme({
 
 
 export default function Create() {
+const history  = useHistory() 
 
   const [title, setTitleState] = useState(null)
   const [details, setDetailState] = useState(null)
   const [titleError, setTitleErrorState] = useState(false)
   const [detailsError, setDetailErrorState] = useState(false)
+  const [category, setCategoryState] =  useState('todos')
 
   const classes = useStyles()
 
@@ -55,14 +59,20 @@ export default function Create() {
     }
 
     if(title && details){
-      console.log(title,details)
+      console.log(title,details,category)
+      fetch(' http://localhost:8000/notes',{
+        method:'POST',
+        headers:{"Content-type":"application/json"},
+        body:JSON.stringify({title,details,category})
+      }).then(() =>history.push('/'))
+    
     }
     
   }
   
 
   return (
-    <ThemeProvider theme = {theme}>
+    
     <Container>
       <Typography
         variant="h6"
@@ -102,7 +112,17 @@ export default function Create() {
          onChange = {(e) =>{setDetailState(e.target.value)}}
         
         />
-      </form>
+      <FormControl className = {classes.myTextField}>
+        <FormLabel>Note Catergory</FormLabel>
+        <RadioGroup value = {category} onChange = {(e) =>{setCategoryState(e.target.value)}}>
+          <FormControlLabel control = {<Radio/>} label = "Money" value ="money"></FormControlLabel>
+          <FormControlLabel control = {<Radio/>} label = "Todos" value = "todos"></FormControlLabel>
+          <FormControlLabel control = {<Radio/>} label = "Reminders"  value ="reminders" ></FormControlLabel>
+          <FormControlLabel control = {<Radio/>} label = "Work" value = "work"></FormControlLabel>
+        </RadioGroup>
+      </FormControl>
+      
+      
       <Button
        
         variant="contained"
@@ -116,8 +136,10 @@ export default function Create() {
         SUBMIT
       </Button>
       <br/>
+
+      </form>
     
     </Container>
-    </ThemeProvider>
+    
   )
 }
