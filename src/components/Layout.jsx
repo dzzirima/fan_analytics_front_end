@@ -7,6 +7,10 @@ import ListItemText from '@material-ui/core/ListItemText';
 import AddCircleOutlinedIcon from '@material-ui/icons/AddCircleOutlined';
 import SubjectOutlined from '@material-ui/icons/SubjectOutlined';
 import {useHistory,useLocation } from 'react-router-dom'
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import { format } from 'date-fns'
+import Avatar from '@material-ui/core/Avatar';
 
 
 // constant for the drawer with
@@ -26,13 +30,27 @@ const useStyles = makeStyles((theme) =>{
             width:drawerWidth
         },
         root:{
-            display:"flex"
+            display:"flex",
+            padding:theme.spacing(2)
         },
         active:{
             background:'#d8ac9c'
         },
         title:{
             padding:theme.spacing(2)
+        },
+        //calcultation in css
+        appbar:{
+            width: 'calc(100% - 240px)',
+            backgroundColor:"#f7f7e8"
+        },
+        toolbar:theme.mixins.toolbar,
+        date:{
+            flexGrow:1
+
+        },
+        avatar:{
+            marginLeft:theme.spacing(2)
         }
     }  
 })
@@ -49,6 +67,7 @@ const menuItems = [
         path:'/create'
     },
     
+    
 ]
 
 const Layout = ({children}) => {
@@ -57,6 +76,19 @@ const Layout = ({children}) => {
     const location = useLocation()
     return (
         <div className = {classes.root}>
+        <AppBar 
+            className = {classes.appbar}
+            elevation = {0}
+        >
+            <Toolbar color  = "secondary">
+                <Typography variant ="h5" color = "textSecondary" className = {classes.date}>
+                   Today is the {format(new Date(),'do MMMM Y')}
+                </Typography>
+                <Typography variant = "h5" color = "textPrimary"> David</Typography>
+                <Avatar src = '/blue.png' className = {classes.avatar}/>
+            </Toolbar>
+        </AppBar>
+        
         <Drawer 
             className = {classes.drawer}
             //overiding one of the classes inside the drawer
@@ -88,6 +120,10 @@ const Layout = ({children}) => {
             
         </Drawer>
         <div className ={classes.page}>
+                {/* create some spacing here for the div to go down :he height of this div should be equl  toolbar */}
+            <div className = {classes.toolbar}>
+
+            </div>
             {children}
         </div>
         </div>

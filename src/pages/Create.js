@@ -82,7 +82,7 @@ const history  = useHistory()
         color ="initial"
        
       > 
-      Create a new Note
+      
       </Typography>
 
       <form>
