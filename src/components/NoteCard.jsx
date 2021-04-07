@@ -4,8 +4,9 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import DeleteIcon from '@material-ui/icons/Delete';
-import { IconButton, Typography } from '@material-ui/core';
+import { Avatar, IconButton, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core'
+import { blue, green, yellow } from '@material-ui/core/colors';
 
 
 const useStyles = makeStyles({
@@ -15,7 +16,23 @@ const useStyles = makeStyles({
             if(note.category == 'todos')
             return '3px solid #150e56'
         })
+    },
+    avatar:{
+        backgroundColor:((note)=>{
+            if(note.category == 'todos'){
+                return yellow[700]
+            }
+            if(note.category == 'work'){
+                return green[700]
+            }
+            if(note.category == 'money'){
+                return green[700]
+            }
+            return blue[500]
+                
+        })
     }
+
 
 })
 
@@ -27,6 +44,11 @@ function NoteCard({note ,handleDelete}) {
             <CardHeader
                 title = {note.title}
                 subheader = {note.category}
+                avatar = {
+                    <Avatar className = {classes.avatar}>
+                        {note.category[0].toUpperCase()}
+                    </Avatar>
+                }
                 action = {
                     <IconButton onClick = {() =>{handleDelete(note.id)}}>
                          <DeleteIcon/>
