@@ -9,28 +9,32 @@ import SubjectOutlined from '@material-ui/icons/SubjectOutlined';
 import {useHistory,useLocation } from 'react-router-dom'
 
 
-
 // constant for the drawer with
 const drawerWidth = 240;
-const useStyles = makeStyles({
-    page:{
-        background:"#f8ede3",
-        width:'100%',
-        height :'100vh'
-    },
-    drawer:{
-        width:drawerWidth
-
-    },
-    paperDrawer:{
-        width:drawerWidth
-    },
-    root:{
-        display:"flex"
-    },
-    active:{
-        background:'#d8ac9c'
-    }
+const useStyles = makeStyles((theme) =>{
+    return{
+        page:{
+            background:"#f8ede3",
+            width:'100%',
+            height :'100vh'
+        },
+        drawer:{
+            width:drawerWidth
+    
+        },
+        paperDrawer:{
+            width:drawerWidth
+        },
+        root:{
+            display:"flex"
+        },
+        active:{
+            background:'#d8ac9c'
+        },
+        title:{
+            padding:theme.spacing(2)
+        }
+    }  
 })
 // menu itmes that are gonn be displayed on the drawer
 const menuItems = [
@@ -60,9 +64,9 @@ const Layout = ({children}) => {
             variant = "permanent"
             anchor = "left"
         >
-            <dv>
+            <div className = {classes.title}>
              <Typography> Heloo</Typography>
-            </dv>
+            </div>
 
             {/* list all the links */}
             <List>
