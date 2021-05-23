@@ -6,6 +6,7 @@ import { makeStyles } from "@material-ui/core"
 import {createMuiTheme,ThemeProvider} from '@material-ui/core'
 import { TextField } from '@material-ui/core';
 import {useHistory } from 'react-router-dom'
+import DataTable from '../components/DataTable';
 
 const useStyles = makeStyles({
   btn:{
@@ -33,7 +34,7 @@ const theme = createMuiTheme({
 })
 
 
-export default function LocationReport() {
+export default function LocationReport(props) {
 
 const history  = useHistory() 
 const classes = useStyles()
@@ -42,6 +43,7 @@ const classes = useStyles()
     
     <Container>
       <h1> Helllo Location Reports </h1>
+      <DataTable/>
     </Container>
     
   )
