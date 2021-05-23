@@ -12,7 +12,7 @@ function App() {
             <LocationReport/>
    
           </Route>
-          <Route path="/create">
+          <Route path="/fuel">
             <FuelAnalytics/>
           </Route>
         </Layout>

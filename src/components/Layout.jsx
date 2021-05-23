@@ -102,7 +102,7 @@ const Layout = ({children}) => {
             anchor = "left"
         >
             <div className = {classes.title}>
-             <Typography> Heloo</Typography>
+             <Typography> FanAnalytics</Typography>
             </div>
 
             {/* list all the links */}
