@@ -1,16 +1,17 @@
-import { makeStyles,Drawer, Typography } from '@material-ui/core'
+import { makeStyles,Drawer, Typography, Button } from '@material-ui/core'
 import React from 'react'
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import AddCircleOutlinedIcon from '@material-ui/icons/AddCircleOutlined';
-import SubjectOutlined from '@material-ui/icons/SubjectOutlined';
+
 import {useHistory,useLocation } from 'react-router-dom'
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import { format } from 'date-fns'
 import Avatar from '@material-ui/core/Avatar';
+import LocationOnIcon from '@material-ui/icons/LocationOn';
+import EvStationIcon from '@material-ui/icons/EvStation';
 
 
 // constant for the drawer with
@@ -57,14 +58,14 @@ const useStyles = makeStyles((theme) =>{
 // menu itmes that are gonn be displayed on the drawer
 const menuItems = [
     {
-        text:'My Notes',
-        icon:<SubjectOutlined/>,
-        path:'/'
+        text:'Vehicle Location',
+        icon:<LocationOnIcon/>,
+        path:'/location'
     },
     {
-        text:'Create Notes',
-        icon:<AddCircleOutlinedIcon/>,
-        path:'/create'
+        text:'Fuel Analytics',
+        icon:<EvStationIcon/>,
+        path:'/fuel'
     },
     
     
@@ -86,6 +87,10 @@ const Layout = ({children}) => {
                 </Typography>
                 <Typography variant = "h5" color = "textPrimary"> David</Typography>
                 <Avatar src = '/blue.png' className = {classes.avatar}/>
+                {/* <Button
+                onClick = {() =>{history.push('/create')}}
+                
+                > Heloo Checking </Button> */}
             </Toolbar>
         </AppBar>
         
@@ -116,7 +121,6 @@ const Layout = ({children}) => {
                     ))
                 }
             </List>
-           
             
         </Drawer>
         <div className ={classes.page}>

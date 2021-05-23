@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import Notes from './pages/Notes'
-import Create from './pages/Create'
+import FuelAnalytics from './pages/FuelAnalytics'
+import LocationReport from './pages/LocationReport'
 import Layout from './components/Layout'
 
 function App() {
@@ -8,11 +8,12 @@ function App() {
     <Router>
       <Switch>
         <Layout>
-          <Route exact path="/">
-            <Notes />
+          <Route exact path="/location">
+            <LocationReport/>
+   
           </Route>
           <Route path="/create">
-            <Create />
+            <FuelAnalytics/>
           </Route>
         </Layout>
       </Switch>
