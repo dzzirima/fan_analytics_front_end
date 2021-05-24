@@ -60,7 +60,7 @@ export default function SignIn() {
   const handleSubmit = (event) =>{
       event.preventDefault()
       console.log(userName + password)
-      api.getGlobalhash("heloo", "hero")
+      console.log(api.loginStatus())
   }
 
   return (

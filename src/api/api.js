@@ -36,6 +36,10 @@ function getGlobalHashFromLocalStorage(){
     var globalHash = localStorage.getItem('globalHash')
     return globalHash
 }
+//get get login status
+api.loginStatus = () =>{
+    return getGlobalHashFromLocalStorage ? true :false
+}
 
 
 

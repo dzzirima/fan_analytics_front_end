@@ -32,8 +32,6 @@ const theme = createMuiTheme({
   }
 
 })
-
-
 export default function LocationReport(props) {
 
 const history  = useHistory() 
