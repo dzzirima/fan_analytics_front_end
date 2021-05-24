@@ -35,16 +35,20 @@ const theme = createMuiTheme({
 })
 export default function LocationReport(props) {
 
-function getTrackers(){
-  let trackers = api.getTrackers(JSON.parse(api.getGlobalHashFromLocalStorage()).hash)
-  console.log(trackers)
+async function  getTrackers(){
+  let trackers = await  api.getTrackers(JSON.parse(api.getGlobalHashFromLocalStorage()).hash)
+  return trackers
 }
 
 const history  = useHistory() 
 const classes = useStyles()
+const [trackers, setTrackers] = useState([])
 
-useEffect(() => {
-  getTrackers()
+useEffect(async() => {
+  let trackersList = await  api.getTrackers(JSON.parse(api.getGlobalHashFromLocalStorage()).hash)
+  setTrackers(trackersList)
+  console.log(trackers)
+
 }, [])
 
   return (

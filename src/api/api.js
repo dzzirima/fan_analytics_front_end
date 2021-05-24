@@ -16,6 +16,8 @@ api.getGlobalhash =  async (userName ,password ) =>{
         "login":`${userName}`,
         "password":`${password}`
     }
+
+    console.log(userName,password)
     try {
         const response = await  axios({
             method:'POST',
@@ -61,7 +63,8 @@ api.getTrackers = async (globalHash) =>{
                 hash:globalHash
             }
         });
-        console.log(trackers.data)
+        // console.log(trackers.data)
+        return(trackers.data);
         
     } catch (error) {
         console.log(error)
