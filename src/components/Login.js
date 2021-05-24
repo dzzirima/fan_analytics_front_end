@@ -59,9 +59,6 @@ export default function SignIn() {
 
   const handleSubmit = (event) =>{
       event.preventDefault()
-      api.getGlobalhash(userName,password)
-      // console.log(userName + password)
-      console.log(api.loginStatus())
   }
   return (
     <Container component="main" maxWidth="xs">

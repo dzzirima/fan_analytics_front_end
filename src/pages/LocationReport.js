@@ -1,4 +1,4 @@
-import React ,{ useState } from 'react'
+import React ,{ useEffect, useState } from 'react'
 
 import { Typography,Button,Container, RadioGroup, FormControlLabel, Radio, FormLabel, FormControl} from '@material-ui/core';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
@@ -7,6 +7,7 @@ import {createMuiTheme,ThemeProvider} from '@material-ui/core'
 import { TextField } from '@material-ui/core';
 import {useHistory } from 'react-router-dom'
 import DataTable from '../components/DataTable';
+import api from '../api/api'
 
 const useStyles = makeStyles({
   btn:{
@@ -34,8 +35,17 @@ const theme = createMuiTheme({
 })
 export default function LocationReport(props) {
 
+function getTrackers(){
+  let trackers = api.getTrackers(JSON.parse(api.getGlobalHashFromLocalStorage()).hash)
+  console.log(trackers)
+}
+
 const history  = useHistory() 
 const classes = useStyles()
+
+useEffect(() => {
+  getTrackers()
+}, [])
 
   return (
     

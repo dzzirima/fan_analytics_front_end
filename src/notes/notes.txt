@@ -1,4 +1,7 @@
 json-server -watch data/db.json --port
 
 
-Appbar is th
+// api.getGlobalhash(userName,password)
+      // console.log(userName + password)
+      // console.log(api.loginStatus())
+      let  globalHash = JSON.parse(api.getGlobalHashFromLocalStorage()).hash

@@ -38,20 +38,19 @@ function storeGlobalHashToLocalStorage(globalHash){
 
 }
 // function  to get the global hash from local storage
-function getGlobalHashFromLocalStorage(){
+api.getGlobalHashFromLocalStorage = () =>{
     var globalHash = localStorage.getItem('globalHash')
     return globalHash
 }
 //get get login status
 api.loginStatus = () =>{
     try {
-    let globalHash = JSON.parse( getGlobalHashFromLocalStorage())
+    let globalHash = JSON.parse(api.getGlobalHashFromLocalStorage())
     console.log(globalHash['success'])
     return globalHash.success ? true :false    
     } catch (error) {
         return false
     }
-   
 }
 
 // funtion to get the all the trackers
@@ -60,18 +59,15 @@ api.getTrackers = async (globalHash) =>{
         let trackers = await axios.get(trackersUrl,{
             params:{
                 hash:globalHash
-
             }
         });
-        console.log(trackers.data.list)
+        console.log(trackers.data)
         
     } catch (error) {
         console.log(error)
         
     }
 }
-
-api.getTrackers('5d6685c2e5253be8e1f45ac62beda35c')
 
 
 export default api;
