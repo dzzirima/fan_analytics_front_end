@@ -59,10 +59,10 @@ export default function SignIn() {
 
   const handleSubmit = (event) =>{
       event.preventDefault()
-      console.log(userName + password)
+      api.getGlobalhash(userName,password)
+      // console.log(userName + password)
       console.log(api.loginStatus())
   }
-
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -95,9 +95,9 @@ export default function SignIn() {
             fullWidth
             name="password"
             label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
+            // type="password"
+            // id="password"
+            // autoComplete="current-password"
             onChange = {(e)=>{
                 setPassword(e.target.value)
             }}

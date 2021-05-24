@@ -3,13 +3,19 @@ import axios from 'axios'
 let api = {}
 //authentication
 let authUrl = "http://api.navixy.com/v2/user/auth"
+let trackersUrl = "https://api.navixy.com/v2/tracker/list"
 
-let authBody = {
-    "login": "admin@smartworldsolutions.net",
-    "password": "#fanmain123!"
-}
+
 
 api.getGlobalhash =  async (userName ,password ) =>{
+    // let authBody = {
+    //     "login": "admin@smartworldsolutions.net",
+    //     "password": "#fanmain123!"
+    // }
+    let authBody2 = {
+        "login":`${userName}`,
+        "password":`${password}`
+    }
     try {
         const response = await  axios({
             method:'POST',
@@ -17,7 +23,7 @@ api.getGlobalhash =  async (userName ,password ) =>{
             headers :{
                 'Content-Type': 'application/json'
             },
-            data: JSON.stringify(authBody),
+            data: JSON.stringify(authBody2),
         })
         storeGlobalHashToLocalStorage(response.data)
 
@@ -38,9 +44,34 @@ function getGlobalHashFromLocalStorage(){
 }
 //get get login status
 api.loginStatus = () =>{
-    return getGlobalHashFromLocalStorage ? true :false
+    try {
+    let globalHash = JSON.parse( getGlobalHashFromLocalStorage())
+    console.log(globalHash['success'])
+    return globalHash.success ? true :false    
+    } catch (error) {
+        return false
+    }
+   
 }
 
+// funtion to get the all the trackers
+api.getTrackers = async (globalHash) =>{
+    try {
+        let trackers = await axios.get(trackersUrl,{
+            params:{
+                hash:globalHash
+
+            }
+        });
+        console.log(trackers.data.list)
+        
+    } catch (error) {
+        console.log(error)
+        
+    }
+}
+
+api.getTrackers('5d6685c2e5253be8e1f45ac62beda35c')
 
 
 export default api;

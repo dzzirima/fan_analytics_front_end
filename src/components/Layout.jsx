@@ -90,7 +90,7 @@ const Layout = ({children}) => {
                 <Button
                 onClick = {() =>{history.push('/Login')}}
                 
-                > Heloo Checking </Button>
+                > Login </Button>
             </Toolbar>
         </AppBar>
         

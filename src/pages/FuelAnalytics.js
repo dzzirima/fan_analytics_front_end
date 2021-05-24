@@ -11,7 +11,7 @@ export default function FuelAnalytics() {
   return (
     <Container>
       <h1> fuel analytics is coming very soon</h1>
-      <SignIn/>
+      
     </Container>
   )
 }
