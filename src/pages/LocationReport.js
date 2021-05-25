@@ -9,6 +9,8 @@ import {useHistory } from 'react-router-dom'
 import DataTable from '../components/DataTable';
 import api from '../api/api'
 import axios from '../api/Axios'
+import Loader from '../components/Loader'
+
 
 const useStyles = makeStyles({
   btn:{
@@ -36,24 +38,31 @@ const theme = createMuiTheme({
 })
 export default function LocationReport(props) {
   const [trackers, setTrackers] = useState([])
+  const [dataState, setDataState] = useState(false)
 
   useEffect(() => {
     async function fetchData(){
       let hash = await  api.getGlobalHashFromLocalStorage()
       const result = await axios.get(`location?globalHash=${hash}`)
-      console.log(result)
       setTrackers(result.data);
+      setDataState(true)
+      console.log(result)
       return result
     }
     fetchData()
   }, [])
   
-
   return (
     <Container>
+      {
+        dataState ? (
+          <DataTable data = {trackers}/>
+       
+        ):(
+          <Loader/>
+        )
+      }
   
-      <h1> Helllo Location Reports </h1>
-      <DataTable data = {trackers}/>
     </Container>
     
   )

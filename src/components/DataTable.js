@@ -25,12 +25,13 @@ export default function LocationPage( props) {
     <div style={{ height: 550, width: '95%' }}>
       <DataGrid rows={props.data}
        columns={columns}
-        pageSize={5} 
+        pageSize={20} 
       rowHeight = {38}
       components= {{
           Toolbar:DownLoadHeader,
       }}
       />
+      <p> Hello david</p>
     </div>
   );
 }
