@@ -48,10 +48,8 @@ api.getGlobalHashFromLocalStorage = () =>{
         return globalHash
         
     } catch (error) {
-        console.log(error)
-        
-    }
-    
+        console.log(error) 
+    } 
 }
 //get get login status
 api.loginStatus = () =>{
