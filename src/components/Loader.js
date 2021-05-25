@@ -42,12 +42,11 @@ export default function CircularLoader() {
             </div>
         </div>
 
-       
          {/* <CircularProgress 
                      thickness={4}
                      value={100}
+                     which is better the line or circular thing ....
                  />  */}
-    
     </div>
   );
 }
