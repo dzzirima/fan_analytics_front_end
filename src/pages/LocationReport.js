@@ -51,18 +51,9 @@ export default function LocationReport(props) {
 
   return (
     <Container>
-
-      <div>
-        {
-          trackers.map((item) =>(
-            <h1> {item.name} </h1>
-          ))
-        }
-
-      </div>
-     
+  
       <h1> Helllo Location Reports </h1>
-      {/* <DataTable/> */}
+      <DataTable data = {trackers}/>
     </Container>
     
   )

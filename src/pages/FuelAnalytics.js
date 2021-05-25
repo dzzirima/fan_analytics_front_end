@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {Container, Grid, Paper} from "@material-ui/core"
-import SignIn from '../components/Login'
+import Loader from "../components/Loader"
 
 
 export default function FuelAnalytics() {
@@ -11,7 +11,7 @@ export default function FuelAnalytics() {
   return (
     <Container>
       <h1> fuel analytics is coming very soon</h1>
-      
+      <Loader/>
     </Container>
   )
 }
