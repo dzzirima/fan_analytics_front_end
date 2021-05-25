@@ -4,6 +4,8 @@ let api = {}
 //authentication
 let authUrl = "http://api.navixy.com/v2/user/auth"
 let trackersUrl = "https://api.navixy.com/v2/tracker/list"
+let locationUrl = "https://fananalytics.herokuapp.com/location"
+let localurl = "http://localhost:8001/location"
 
 
 
@@ -41,8 +43,15 @@ function storeGlobalHashToLocalStorage(globalHash){
 }
 // function  to get the global hash from local storage
 api.getGlobalHashFromLocalStorage = () =>{
-    var globalHash = localStorage.getItem('globalHash')
-    return globalHash
+    try {
+        var globalHash = JSON.parse(localStorage.getItem('globalHash')).hash
+        return globalHash
+        
+    } catch (error) {
+        console.log(error)
+        
+    }
+    
 }
 //get get login status
 api.loginStatus = () =>{
@@ -58,19 +67,24 @@ api.loginStatus = () =>{
 // funtion to get the all the trackers
 api.getTrackers = async (globalHash) =>{
     try {
-        let trackers = await axios.get(trackersUrl,{
-            params:{
-                hash:globalHash
-            }
-        });
-        // console.log(trackers.data)
-        return(trackers.data);
-        
+        // let response = await axios.get(localurl,{
+        //     params:{
+        //         hash:globalHash
+        //     }
+        // });
+        // console.log(response.data)
+        // return(response);
+        let globalHash = "5d7cc3654eeaf628d3355a468f08bedc"
+        let response = await axios.get(`${localurl}?globalHash=${globalHash}`)
+        // console.log(response)
+        return response.data
     } catch (error) {
         console.log(error)
         
     }
 }
+
+// api.getTrackers("david");
 
 
 export default api;
