@@ -31,7 +31,7 @@ export default function LocationPage( props) {
           Toolbar:DownLoadHeader,
       }}
       />
-      <p> Hello david</p>
+     
     </div>
   );
 }

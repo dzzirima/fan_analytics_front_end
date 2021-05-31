@@ -19,7 +19,7 @@ const drawerWidth = 240;
 const useStyles = makeStyles((theme) =>{
     return{
         page:{
-            background:"#f8ede3",
+            background:"#fff6f6",
             width:'100%',
             height :'100vh'
         },
@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) =>{
         //calcultation in css
         appbar:{
             width: 'calc(100% - 240px)',
-            backgroundColor:"#f7f7e8"
+            backgroundColor:"#fafafa"
         },
         toolbar:theme.mixins.toolbar,
         date:{
@@ -52,6 +52,10 @@ const useStyles = makeStyles((theme) =>{
         },
         avatar:{
             marginLeft:theme.spacing(2)
+        },
+        logo:{
+            width:150,
+            height:70,
         }
     }  
 })
@@ -67,6 +71,7 @@ const menuItems = [
         icon:<EvStationIcon/>,
         path:'/fuel'
     },
+
     
     
 ]
@@ -83,13 +88,14 @@ const Layout = ({children}) => {
         >
             <Toolbar color  = "secondary">
                 <Typography variant ="h5" color = "textSecondary" className = {classes.date}>
-                   Today is the {format(new Date(),'do MMMM Y')}
+                   Vehicle Location : {format(new Date(),'do MMMM Y')}
                 </Typography>
-                <Typography variant = "h5" color = "textPrimary"> David</Typography>
-                <Avatar src = '/blue.png' className = {classes.avatar}/>
+                <div className = {classes.logo}>
+                    <img src='./fantracker_logo.jpg' alt= "Logo"  className = {classes.logo}/>
+                </div>
+                {/* <Avatar src = '/logo.JPG' className = {classes.avatar}/> */}
                 <Button
                 onClick = {() =>{history.push('/Login')}}
-                
                 > Login </Button>
             </Toolbar>
         </AppBar>

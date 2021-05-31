@@ -31,7 +31,7 @@ const useStyles = makeStyles({
 const theme = createMuiTheme({
   palette:{
     primary:{
-      main:'#fefefe'
+      main:'#fafafa'
     }
   }
 
