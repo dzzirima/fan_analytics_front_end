@@ -2,7 +2,7 @@
 import axios from 'axios'
 let api = {}
 //authentication
-let authUrl = "http://api.navixy.com/v2/user/auth"
+let authUrl = "https://api.navixy.com/v2/user/auth"
 let trackersUrl = "https://api.navixy.com/v2/tracker/list"
 let locationUrl = "https://fananalytics.herokuapp.com/location"
 let localurl = "http://localhost:8001/location"
