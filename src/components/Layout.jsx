@@ -87,7 +87,7 @@ const Layout = ({children}) => {
         >
             <Toolbar color  = "secondary">
                 <Typography variant ="h5" color = "textSecondary" className = {classes.date}>
-                   Vehicle Location : {format(new Date(),'do MMMM Y')}
+                   Fleet Analysis : {format(new Date(),'do MMMM Y')}
                 </Typography>
                 <div className = {classes.logo}>
                     <img src='./fantracker_logo.jpg' alt= "Logo"  className = {classes.logo}/>

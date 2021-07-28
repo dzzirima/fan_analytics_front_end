@@ -24,8 +24,8 @@ const columnsForLocationReport = [
 
 const columnsForMileageReport = [
   { field: 'id', headerName: 'ID', width: 90 },
-  { field: 'name', headerName: 'Reg Number', width: 150 },
-  { field: 'mileage', headerName: 'Current Mileage', width: 150 },
+  { field: 'name', headerName: 'Reg Number', width:200 },
+  { field: 'mileage', headerName: 'Current Mileage (Km)', width: 300 },
 ];
 
 
