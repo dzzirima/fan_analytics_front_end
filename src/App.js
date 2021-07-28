@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import FuelAnalytics from './pages/FuelAnalytics'
+import MileageReport from './pages/MileageReport'
 import LocationReport from './pages/LocationReport'
 import Layout from './components/Layout'
 import Login from './components/Login'
@@ -13,7 +13,7 @@ function App() {
             <LocationReport/>
           </Route>
           <Route path="/fuel">
-            <FuelAnalytics/>
+            <MileageReport/>
           </Route>
           <Route exact path = "/Login">
           <Login/>

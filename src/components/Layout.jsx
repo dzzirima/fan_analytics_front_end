@@ -9,9 +9,8 @@ import {useHistory,useLocation } from 'react-router-dom'
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import { format } from 'date-fns'
-import Avatar from '@material-ui/core/Avatar';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
-import EvStationIcon from '@material-ui/icons/EvStation';
+import SpeedIcon from '@material-ui/icons/Speed';
 
 
 // constant for the drawer with
@@ -67,8 +66,8 @@ const menuItems = [
         path:'/location'
     },
     {
-        text:'Fuel Analytics',
-        icon:<EvStationIcon/>,
+        text:'Mileage Report',
+        icon:<SpeedIcon/>,
         path:'/fuel'
     },
 

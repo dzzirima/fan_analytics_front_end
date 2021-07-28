@@ -6,7 +6,7 @@ import { makeStyles } from "@material-ui/core"
 import {createMuiTheme,ThemeProvider} from '@material-ui/core'
 import { TextField } from '@material-ui/core';
 import {useHistory } from 'react-router-dom'
-import {LocationPageTable} from '../components/DataTable';
+import {MileagePageTable} from '../components/DataTable';
 import api from '../api/api'
 import axios from '../api/Axios'
 import Loader from '../components/Loader'
@@ -43,7 +43,7 @@ export default function LocationReport(props) {
   useEffect(() => {
     async function fetchData(){
       let hash = await  api.getGlobalHashFromLocalStorage()
-      const result = await axios.get(`location?globalHash=${hash}`)
+      const result = await axios.post(`mileage?globalHash=${hash}`)
       setTrackers(result.data);
       setDataState(true)
       console.log(result)
@@ -56,7 +56,7 @@ export default function LocationReport(props) {
     <Container>
       {
         dataState ? (
-          <LocationPageTable data = {trackers}/>
+          <MileagePageTable data = {trackers}/>
        
         ):(
           <Loader/>
