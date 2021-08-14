@@ -53,7 +53,7 @@ export default function ParkedReport(props) {
     })
 
     // setTrackers(filteredTrackers)
-    if(searchKey === "24" ||searchKey === "36" ||searchKey === "others"){
+    if(searchKey === "24" ||searchKey === "36" || searchKey === "72"|| searchKey === "others"){
       setTrackers(filteredTrackers)
 
     }else if(searchKey === ""){
