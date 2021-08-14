@@ -28,6 +28,14 @@ const columnsForMileageReport = [
   { field: 'mileage', headerName: 'Current Mileage (Km)', width: 300 },
 ];
 
+const columnsForParkedReport = [
+  { field: 'id', headerName: 'ID', width: 90 },
+  { field: 'name', headerName: 'Reg Number', width:200 },
+  { field: 'mileage', headerName: 'Current Mileage (Km)', width: 300 },
+];
+
+
+
 
 export function LocationPageTable( props) {
   return (
