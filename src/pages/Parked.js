@@ -40,23 +40,28 @@ const theme = createMuiTheme({
 })
 
 export default function ParkedReport(props) {
+
+  var globalTrackers = []
   const [trackers, setTrackers] = useState([]) // it should start with []
+  const [fTracker,setFTrackers] = useState([])
 
   const [dataState, setDataState] = useState(false) // set state to false at first
-
+  
   const filterByHours = (event) =>{
     let searchKey = event.target.value
     // console.log(typeof(searchKey))
-    let filteredTrackers = trackers.filter(function(tracker){
+    let filteredTrackers = fTracker.filter(function(tracker){
       return tracker.group === searchKey
     })
 
     // setTrackers(filteredTrackers)
     if(searchKey === "24" ||searchKey === "36" || searchKey === "72"|| searchKey === "others"){
-      setTrackers(filteredTrackers)
+      setFTrackers(filteredTrackers)
+      console.log(trackers)
 
     }else if(searchKey === ""){
-      setTrackers(trackers)
+      setFTrackers(trackers)
+
     }
     
     
@@ -67,9 +72,10 @@ export default function ParkedReport(props) {
       let hash = await  api.getGlobalHashFromLocalStorage()
       const result = await axios.get(`parked?globalHash=${hash}`)
       setTrackers(result.data);
+      setFTrackers(result.data)
       setDataState(true)
       // console.log(result)
-      return result
+      return result.data
     }
     fetchData()
   }, [])
@@ -92,7 +98,7 @@ export default function ParkedReport(props) {
       
       {
         dataState ? (
-          <ParkedPageTable data = {trackers}/>
+          <ParkedPageTable data = {fTracker}/>
        
         ):(
           <Loader/>
