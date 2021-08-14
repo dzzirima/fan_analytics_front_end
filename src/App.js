@@ -3,6 +3,7 @@ import MileageReport from './pages/MileageReport'
 import LocationReport from './pages/LocationReport'
 import Layout from './components/Layout'
 import Login from './components/Login'
+import ParkedReport from './pages/Parked'
 
 function App() {
   return (
@@ -16,7 +17,10 @@ function App() {
             <MileageReport/>
           </Route>
           <Route exact path = "/Login">
-          <Login/>
+            <Login/>
+          </Route>
+          <Route exact path = "/parked">
+            <ParkedReport/>
           </Route>
         </Layout>
       </Switch>
@@ -25,3 +29,4 @@ function App() {
 }
 
 export default App;
+

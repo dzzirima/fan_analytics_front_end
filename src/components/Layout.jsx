@@ -11,6 +11,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import { format } from 'date-fns'
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import SpeedIcon from '@material-ui/icons/Speed';
+import EmojiTransportationIcon from '@material-ui/icons/EmojiTransportation';
 
 
 // constant for the drawer with
@@ -70,6 +71,11 @@ const menuItems = [
         icon:<SpeedIcon/>,
         path:'/fuel'
     },
+    {
+        text:'Parked Vehicles',
+        icon:<EmojiTransportationIcon/>,
+        path:'/parked'
+    }
 
     
     

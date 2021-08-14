@@ -1,0 +1,9 @@
+
+.searchContainer{
+    display: flex;
+    width: 70%;
+}
+.searchBar{
+    margin: 10px;
+    flex-grow: 1; 
+}
