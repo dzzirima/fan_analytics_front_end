@@ -39,7 +39,6 @@ const theme = createMuiTheme({
 
 })
 
-let dummy = [{"id":827851,"name":"AJC4387","trackerId":827851,"location":"n/a","lastUpdateTime":"n/a","state":"n/a","mileage":"n/a","parkedTime":"a minute ago","group":"24"},{"id":827852,"name":"AEF5530","trackerId":827852,"location":"n/a","lastUpdateTime":"n/a","state":"n/a","mileage":"n/a","parkedTime":"2 minutes ago","group":"24"},{"id":827853,"name":"BAG5696","trackerId":827853,"location":"n/a","lastUpdateTime":"n/a","state":"n/a","mileage":"n/a","parkedTime":"a day ago","group":"36"},{"id":827854,"name":"AFG1345","trackerId":827854,"location":"n/a","lastUpdateTime":"n/a","state":"n/a","mileage":"n/a","parkedTime":"2 minutes ago","group":"24"},{"id":827855,"name":"BAJ827","trackerId":827855,"location":"n/a","lastUpdateTime":"n/a","state":"n/a","mileage":"n/a","parkedTime":"2 years ago","group":"others"}]
 export default function ParkedReport(props) {
   const [trackers, setTrackers] = useState([]) // it should start with []
 
@@ -57,7 +56,7 @@ export default function ParkedReport(props) {
       setTrackers(filteredTrackers)
 
     }else if(searchKey === ""){
-      setTrackers(dummy)
+      setTrackers(trackers)
     }
     
     
