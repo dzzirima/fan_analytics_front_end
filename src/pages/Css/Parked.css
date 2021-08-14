@@ -1,9 +1,13 @@
 
 .searchContainer{
     display: flex;
-    width: 70%;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
 }
 .searchBar{
     margin: 10px;
-    flex-grow: 1; 
+    width: 60%;
+    padding: 10px;
+    /* flex-grow: 1;  */
 }

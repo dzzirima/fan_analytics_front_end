@@ -78,7 +78,7 @@ export function MileagePageTable( props) {
   return (
     <div style={{ height: 550, width: '95%' }}>
       <DataGrid rows={props.data}
-       columns={columnsForParkedReport}
+       columns={columnsForMileageReport}
         pageSize={20} 
       rowHeight = {38}
       components= {{
