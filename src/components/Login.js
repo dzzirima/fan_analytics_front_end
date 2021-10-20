@@ -14,6 +14,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { blue } from '@material-ui/core/colors';
 import  api from '../api/api'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Copyright() {
   return (
@@ -54,12 +56,20 @@ const useStyles = makeStyles((theme) => ({
 export default function SignIn() {
   const classes = useStyles();
   const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("")
+  const [password, setPassword] = useState("");
+  const notify = () => toast("Login Successful");
+  const failedLogin = () => toast("Check Your Credentials");
 
 
-  const handleSubmit = (event) =>{
+  const handleSubmit = async  (event) =>{
       event.preventDefault()
-      api.getGlobalhash(userName,password)
+       let  login = await api.getGlobalhash(userName,password)
+       if(login === true){
+           notify();
+       }else{
+         failedLogin()
+       }
+    
       // console.log(userName + password)
       // console.log(api.loginStatus())
   }
@@ -116,6 +126,7 @@ export default function SignIn() {
           >
             Sign In
           </Button>
+
           {/* <Grid container>
             <Grid item xs>
               <Link href="#" variant="body2">
@@ -129,6 +140,7 @@ export default function SignIn() {
             </Grid>
           </Grid> */}
         </form>
+        <ToastContainer />
       </div>
       <Box mt={8}>
         <Copyright />

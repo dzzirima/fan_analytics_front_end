@@ -14,12 +14,12 @@ api.getGlobalhash =  async (userName ,password ) =>{
     //     "login": "admin@smartworldsolutions.net",
     //     "password": "#fanmain123!"
     // }
+    let login = false
     let authBody2 = {
         "login":`${userName}`,
         "password":`${password}`
     }
-
-    console.log(userName,password)
+    
     try {
         const response = await  axios({
             method:'POST',
@@ -29,7 +29,13 @@ api.getGlobalhash =  async (userName ,password ) =>{
             },
             data: JSON.stringify(authBody2),
         })
-        storeGlobalHashToLocalStorage(response.data)
+        if(response.data){
+            login = true
+            storeGlobalHashToLocalStorage(response.data)
+        }
+
+        return login
+        
 
     } catch (error) {
         console.log(error)
